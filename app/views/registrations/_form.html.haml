@@ -1,0 +1,28 @@
+= form_for @user, url: signup_path, html: {role: "form"} do |f|
+  - if @user.errors.any?
+    #error_explanation
+      - @user.errors.full_messages.each do |message|
+        %p.text-danger= message
+
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: "form-control"
+
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: "form-control"
+
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: "form-control"
+
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: "form-control"
+
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: "form-control"
+
+  .actions.form-group
+    = f.submit "Sign Up", class: "btn btn-primary"
