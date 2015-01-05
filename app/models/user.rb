@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
       config.access_token        = Rails.application.secrets.access_token
       config.access_token_secret = Rails.application.secrets.access_token_secret
     end
-    binding.pry
     client.update(tweet)
   end
 
