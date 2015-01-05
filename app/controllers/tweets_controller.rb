@@ -1,10 +1,18 @@
 class TweetsController < ApplicationController
 
   def create
-    if current_user.tweet(twitter_params[:message])
-      redirect_to root_path, notice: "Tweet sent successfully"
-    else
-      render 'index#show'
+    begin
+      if current_user.tweet(twitter_params[:message])
+        redirect_to root_path, notice: "Tweet sent successfully"
+      end
+    rescue MissingName
+      puts "you're missing a handle!"
+      flash[:notice] = "you're missing a handle!"
+      render 'index/show'
+    rescue Twitter::Error::NotFound
+      puts "user not found"
+      flash[:notice] = "user not found"
+      render 'index/show'
     end
   end
 

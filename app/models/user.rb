@@ -10,6 +10,14 @@ class User < ActiveRecord::Base
       config.access_token        = Rails.application.secrets.access_token
       config.access_token_secret = Rails.application.secrets.access_token_secret
     end
+    if tweet[0] == '@'
+      words = tweet.split(' ')
+      id_len = words[0].length
+      name = tweet[1, id_len]
+      puts client.user(name)
+    else
+      raise MissingName
+    end
     client.update(tweet)
   end
 
