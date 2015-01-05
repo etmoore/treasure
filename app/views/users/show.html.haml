@@ -1,0 +1,16 @@
+.page-header
+  %h1
+    %span= image_tag avatar_url(@user, 64)
+    = @user.full_name
+%dl.dl-horizontal
+  %dt First Name
+  %dd= @user.first_name
+%dl.dl-horizontal
+  %dt Last Name
+  %dd= @user.last_name
+%dl.dl-horizontal
+  %dt Email
+  %dd= mail_to @user.email
+
+.well
+  = link_to 'All Users', users_path, class: "btn btn-primary"
