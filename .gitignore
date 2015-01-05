@@ -13,3 +13,6 @@
 
 # Ignore .DS files
 *.DS*
+
+# Ignore secrets
+config/secrets.yml
