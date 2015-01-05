@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'twitter', '~> 5.13.0'
 gem 'bcrypt'
+gem 'pry-rails'
 
 group :development, :test do
   gem 'byebug'
