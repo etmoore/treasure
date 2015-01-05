@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users
+  resources :tweets, only: [:new, :create]
 
   root "index#show"
   get '/sign-up' => 'registrations#new', as: :signup
@@ -8,5 +9,5 @@ Rails.application.routes.draw do
   get '/sign-in' => 'authentication#new', as: :signin
   post '/sign-in' => 'authentication#create'
   get '/sign-out' => 'authentication#destroy', as: :signout
-  
+
 end
