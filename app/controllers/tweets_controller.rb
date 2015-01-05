@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
 
   def create
     if current_user.tweet(twitter_params[:message])
-      redirect_to root_path
+      redirect_to root_path, notice: "Tweet sent successfully"
     else
       render 'index#show'
     end
