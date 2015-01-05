@@ -1,0 +1,15 @@
+= form_for :authentication, url: signin_path, html: {role: "form"} do |f|
+  - if @sign_in_error
+    #error_explanation
+      %p.text-danger= @sign_in_error
+
+  .form-group
+    = f.label :email, class: "control-label"
+    = f.email_field :email, class: "form-control"
+
+  .form-group
+    = f.label :password, class: "control-label"
+    = f.password_field :password, class: "form-control"
+
+  .actions.form-group
+    = f.submit "Sign In", class: "btn btn-primary"
