@@ -7,6 +7,6 @@
     = form_for :tweet, url: tweets_path, method: :post, class: 'form-inline' do |f|
       .form-group
         = f.text_area :message, class: 'form-control', placeholder: 'Enter your tweet!'
-      = f.submit "Send Tweet", class: 'btn btn-primary'
+      = f.submit "Send Tweet", class: 'btn btn-primary submit-btn'
 - else
   %p You must log in to send a tweet.
