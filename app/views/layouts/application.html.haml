@@ -3,8 +3,8 @@
   %head
     %title Treasure
     = favicon_link_tag 'favicon.ico'
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
     .navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
@@ -21,6 +21,7 @@
             %li= link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user)
             %li= link_to "Sign Out", signout_path
           - else
+            %li= link_to "Twitter Signin", 'auth/twitter'
             %li= link_to "Sign Up", signup_path
             %li= link_to "Sign In", signin_path
 
