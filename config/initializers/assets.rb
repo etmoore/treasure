@@ -9,5 +9,4 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 js_files = %w(form_validation.js)
-
 Rails.application.config.assets.precompile += js_files
