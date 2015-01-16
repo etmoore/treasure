@@ -16,6 +16,7 @@ gem 'twitter', '~> 5.13.0'
 gem 'bcrypt'
 gem 'pry-rails'
 gem 'omniauth-twitter'
+gem 'json'
 
 group :development, :test do
   gem 'byebug'
