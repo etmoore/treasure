@@ -15,4 +15,4 @@
 *.DS*
 
 # Ignore secrets
-config/secrets.yml
+# config/secrets.yml
