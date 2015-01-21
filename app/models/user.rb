@@ -2,11 +2,14 @@ class User < ActiveRecord::Base
   has_many :authentications
 
   def tweet(tweet)
+    user_access_token = authentications.first['token']
+    user_access_token_secret = authentications.first['secret']
+
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = Rails.application.secrets.consumer_key
-      config.consumer_secret     = Rails.application.secrets.consumer_secret
-      config.access_token        = Rails.application.secrets.access_token
-      config.access_token_secret = Rails.application.secrets.access_token_secret
+      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token        = user_access_token
+      config.access_token_secret = user_access_token_secret
     end
     client.update(tweet)
   end
